@@ -1,0 +1,33 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+    providedIn: 'root'
+})
+
+export class MeetingService {
+
+    uri = 'http://localhost:3001/meetings';
+
+    constructor(private http: HttpClient) { }
+
+    getMeetings() {
+        return this.http.get(`${this.uri}/`);
+    }
+
+    createMeeting(tittle, description, start_date, end_date) {
+        const meeting = {
+            tittle,
+            description,
+            start_date,
+            end_date
+        };
+
+        this.http.post(`${this.uri}/create`, meeting)
+            .subscribe(res => console.log('Done'));
+    }
+
+    deleteMeeting(id) {
+        return this.http.delete(`${this.uri}/${id}/delete`);
+    }
+}

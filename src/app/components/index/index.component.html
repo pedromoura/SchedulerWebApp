@@ -1,0 +1,26 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Tittle</td>
+            <td>Description</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td colspan="2">Actions</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let meeting of meetings">
+            <td>{{ meeting.tittle }}</td>
+            <td>{{ meeting.description }}</td>
+            <td>{{ meeting.start_date | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+            <td>{{ meeting.end_date | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+            <td>
+                <a [routerLink]="['/edit', meeting._id]" class="btn btn-primary">Edit</a>
+            </td>
+            <td>
+                <button (click)="deleteMeeting(meeting._id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
