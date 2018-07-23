@@ -18,5 +18,3 @@ export const routes: Routes = [
         component: IndexComponent
     }
 ];
-
-export default routes;
