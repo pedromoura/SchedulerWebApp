@@ -27,6 +27,10 @@ export class MeetingService {
             .subscribe(res => console.log('Done'));
     }
 
+    getMeetingById(id) {
+        return this.http.get(`${this.uri}/${id}`);
+    }
+
     deleteMeeting(id) {
         return this.http.delete(`${this.uri}/${id}/delete`);
     }
