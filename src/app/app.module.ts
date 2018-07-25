@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,19 +15,20 @@ import { routes } from './app.routes';
 import { MeetingService } from './services/meeting.service';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		CreateMeetingComponent,
-		IndexComponent,
-		EditMeetingComponent
-	],
-	imports: [
-		BrowserModule,
-		RouterModule.forRoot(routes),
-		HttpClientModule,
-		ReactiveFormsModule
-	],
-	providers: [MeetingService],
-	bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        CreateMeetingComponent,
+        IndexComponent,
+        EditMeetingComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
+    providers: [MeetingService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

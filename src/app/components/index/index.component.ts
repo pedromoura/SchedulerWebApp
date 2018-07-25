@@ -22,7 +22,6 @@ export class IndexComponent implements OnInit {
 
     deleteMeeting(id) {
         this.meetingService.deleteMeeting(id).subscribe(res => {
-            console.log('Deleted');
             this.getMeetings();
         });
     }

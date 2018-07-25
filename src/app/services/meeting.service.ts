@@ -31,6 +31,17 @@ export class MeetingService {
         return this.http.get(`${this.uri}/${id}`);
     }
 
+    updateMeeting(id, tittle, description, start_date, end_date) {
+        const meeting = {
+            tittle,
+            description,
+            start_date,
+            end_date
+        };
+
+        return this.http.put(`${this.uri}/${id}/update`, meeting);
+    }
+
     deleteMeeting(id) {
         return this.http.delete(`${this.uri}/${id}/delete`);
     }
