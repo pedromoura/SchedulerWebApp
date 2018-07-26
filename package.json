@@ -27,7 +27,7 @@
         "rxjs": "^6.0.0",
         "zone.js": "^0.8.26",
         "moment": "^2.22.2",
-        "angular-material-datetimepicker": "^1.4.0"
+        "ng-pick-datetime": "^6.0.10"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.6.8",

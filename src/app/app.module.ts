@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatToolbarModule, MatButtonModule, MatTableModule } from '@angular/material';
-
+import * as moment from 'moment';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AppComponent } from './app.component';
 import { CreateMeetingComponent } from './components/create-meeting/create-meeting.component';
 import { IndexComponent } from './components/index/index.component';
@@ -24,6 +25,8 @@ import { MeetingService } from './services/meeting.service';
         EditMeetingComponent
     ],
     imports: [
+        OwlDateTimeModule,
+        OwlNativeDateTimeModule,
         MatTableModule,
         MatToolbarModule,
         MatButtonModule,

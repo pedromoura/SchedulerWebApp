@@ -469,17 +469,6 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-material-datetimepicker@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/angular-material-datetimepicker/-/angular-material-datetimepicker-1.4.0.tgz#9992363cc9cf6657bbe6a051ccdca087088f9e72"
-  dependencies:
-    angular-material "~1.0.6"
-    moment "~2.10.2"
-
-angular-material@~1.0.6:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/angular-material/-/angular-material-1.0.9.tgz#00e816f6381ffd164bc7e56dcf56549f0ff64d6c"
-
 ansi-html@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ansi-html/-/ansi-html-0.0.7.tgz#813584021962a9e9e6fd039f940d12f56ca7859e"
@@ -3934,10 +3923,6 @@ moment@^2.22.2:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
-moment@~2.10.2:
-  version "2.10.6"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.10.6.tgz#6cb21967c79cba7b0ca5e66644f173662b3efa77"
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -4011,6 +3996,10 @@ neo-async@^2.5.0:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+
+ng-pick-datetime@^6.0.10:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/ng-pick-datetime/-/ng-pick-datetime-6.0.10.tgz#214ce1c96b956e44b4603de483d1c2fcc9c6a7ff"
 
 no-case@^2.2.0:
   version "2.3.2"
