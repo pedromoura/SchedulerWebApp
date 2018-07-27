@@ -1,50 +1,75 @@
-<div class="card">
-    <div class="card-body">
-        <form [formGroup]="angForm" novalidate>
-            <div class="form-group">
-                <label class="col-md-4">Tittle</label>
-                <input type="text" class="form-control" name="tittle" formControlName="tittle" #tittle/>
-            </div>
-            <div *ngIf="angForm.controls['tittle'].invalid && (angForm.controls['tittle'].dirty || angForm.controls['tittle'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="angForm.controls['tittle'].errors.required">
+<div>
+    <div>
+        <form class="form_width" [formGroup]="angForm">
+            <mat-form-field class="full_width">
+                <input matInput placeholder="Tittle" name="tittle" formControlName="tittle" #tittle>
+
+                <mat-error *ngIf="angForm.controls['tittle'].invalid && (angForm.controls['tittle'].dirty || angForm.controls['tittle'].touched)">
                     Tittle is required.
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4">Description</label>
-                <input type="text" class="form-control" name="description" formControlName="description" #description/>
-            </div>
-            <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="angForm.controls['description'].errors.required">
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full_width">
+                <input matInput placeholder="Description" name="description" formControlName="description" #description>
+
+                <mat-error *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)">
                     Description is required.
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4">Start Date</label>
-                <input type="datetime" class="form-control" name="start_date" formControlName="start_date" #start_date/>
-            </div>
-            <div *ngIf="angForm.controls['start_date'].invalid && (angForm.controls['start_date'].dirty || angForm.controls['start_date'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="angForm.controls['start_date'].errors.required">
-                    Start date is required.
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4">End Date</label>
-                <input type="datetime" class="form-control" name="end_date" formControlName="end_date" #end_date/>
-            </div>
-            <div *ngIf="angForm.controls['end_date'].invalid && (angForm.controls['end_date'].dirty || angForm.controls['end_date'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="angForm.controls['end_date'].errors.required">
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="date_width">
+                    <input matInput #start_date name="start_date" formControlName="start_date"
+                        [matDatepicker]="start_date" placeholder="Choose a start date"
+                        (dateChange)="change_startDate('change', $event)"
+                    >
+                    <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+                    <mat-datepicker #start_date></mat-datepicker>
+                              
+                    <mat-error *ngIf="angForm.controls['start_date'].invalid && (angForm.controls['start_date'].dirty || angForm.controls['start_date'].touched)">
+                        Start Date is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="date_width">
+                    <input matInput #start_hour name="start_hour" type="time" formControlName="start_hour" placeholder="Choose a start hour">
+                                
+                    <mat-error *ngIf="angForm.controls['start_hour'].invalid && (angForm.controls['start_hour'].dirty || angForm.controls['start_hour'].touched)">
+                        Start hour is required.
+                    </mat-error>
+                </mat-form-field>        
+                
+                <mat-form-field class="date_width">
+                    <input matInput #end_date name="end_date" formControlName="end_date" 
+                        [matDatepicker]="end_date" placeholder="Choose a end date"
+                        (dateChange)="change_endDate('change', $event)"
+                    >
+                    <mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
+                    <mat-datepicker #end_date></mat-datepicker>
+                          
+                    <mat-error *ngIf="angForm.controls['end_date'].invalid && (angForm.controls['end_date'].dirty || angForm.controls['end_date'].touched)">
+                        End Date is required.
+                    </mat-error>
+                </mat-form-field> 
+                <mat-form-field class="date_width">
+                    <input matInput #end_hour name="end_hour" type="time" formControlName="end_hour" placeholder="Choose a end hour">
+                                
+                    <mat-error *ngIf="angForm.controls['end_hour'].invalid && (angForm.controls['end_hour'].dirty || angForm.controls['end_hour'].touched)">
+                        End hour is required.
+                    </mat-error>
+                </mat-form-field>
+            <!--<mat-form-field class="full_width">
+                <input matInput placeholder="Start Date" name="start_date" formControlName="start_date" #start_date>
+
+                <mat-error *ngIf="angForm.controls['start_date'].invalid && (angForm.controls['start_date'].dirty || angForm.controls['start_date'].touched)">
+                    Start Date is required.
+                </mat-error>
+            </mat-form-field>        
+            <mat-form-field class="full_width">
+                <input matInput placeholder="End Date" name="end_date" formControlName="end_date" #end_date>
+
+                <mat-error *ngIf="angForm.controls['end_date'].invalid && (angForm.controls['end_date'].dirty || angForm.controls['end_date'].touched)">
                     End Date is required.
-                </div>
-            </div>
-            <div class="form-group">
-                <button (click)="createMeeting(tittle.value, description.value, start_date.value, end_date.value)" [disabled]="angForm.pristine || angForm.invalid"
-                    class="btn btn-primary">Create Meeting</button>
-            </div>
+                </mat-error>
+            </mat-form-field>  -->
+            <button mat-raised-button (click)="createMeeting(tittle.value, description.value, start_hour.value, end_hour.value)" [disabled]="angForm.pristine || angForm.invalid"
+                color="primary">Create Meeting</button>
         </form>
     </div>
 </div>

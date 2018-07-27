@@ -4,9 +4,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { 
+    MatToolbarModule,
+    MatInputModule, 
+    MatButtonModule, 
+    MatTableModule, 
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+} from '@angular/material';
 
-import { MatToolbarModule, MatButtonModule, MatTableModule } from '@angular/material';
 import * as moment from 'moment';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AppComponent } from './app.component';
@@ -22,9 +31,14 @@ import { MeetingService } from './services/meeting.service';
         AppComponent,
         CreateMeetingComponent,
         IndexComponent,
-        EditMeetingComponent
+        EditMeetingComponent,
     ],
     imports: [
+        MatNativeDateModule,
+        MatDatepickerModule,
+        MatPaginatorModule,
+        MatInputModule,
+        MatFormFieldModule,
         OwlDateTimeModule,
         OwlNativeDateTimeModule,
         MatTableModule,
@@ -34,9 +48,12 @@ import { MeetingService } from './services/meeting.service';
         BrowserAnimationsModule,
         RouterModule.forRoot(routes),
         HttpClientModule,
+        FormsModule,
         ReactiveFormsModule,
     ],
-    providers: [MeetingService],
+    providers: [
+        MeetingService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

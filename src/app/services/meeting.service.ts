@@ -23,8 +23,7 @@ export class MeetingService {
             end_date
         };
 
-        this.http.post(`${this.uri}/create`, meeting)
-            .subscribe(res => console.log('Done'));
+        return this.http.post(`${this.uri}/create`, meeting);
     }
 
     getMeetingById(id) {

@@ -1,0 +1,14 @@
+.form_width {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;  
+    margin: 10px;
+}
+
+.full_width {
+    width: 100%;
+}
+
+.date_width {
+    width: 50%;
+}
