@@ -3,7 +3,6 @@
 }
 
 .btns_actions {
-    margin-left: 5px;
     margin-right: 5px;
 }
 
@@ -13,4 +12,8 @@
 
 table {
     width: 100%;
+}
+
+.btn_align_right {
+    float: right;
 }

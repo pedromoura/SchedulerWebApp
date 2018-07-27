@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, NgForm, FormControl } from '@angula
 import { MeetingService } from '../../services/meeting.service';
 import { MatDatepickerInputEvent } from '../../../../node_modules/@angular/material';
 import { parse_dates } from '../../utils/parse-dates';
+import { Meeting } from '../index/Meeting';
 
 @Component({
     selector: 'app-create-meeting',
@@ -23,21 +24,21 @@ export class CreateMeetingComponent implements OnInit {
         this.end_date = new Date();
     }
 
-    createForm() {   
+    createForm() {
         this.angForm = this.fb.group({
             tittle: ['', Validators.required],
             description: ['', Validators.required],
             start_date: ['', Validators.required],
             end_date: ['', Validators.required],
-            start_hour:['', Validators.required],
+            start_hour: ['', Validators.required],
             end_hour: ['', Validators.required]
         });
     }
 
     change_endDate(type: string, event: MatDatepickerInputEvent<Date>) {
-        this.end_date = event.value; 
+        this.end_date = event.value;
     }
-    
+
     change_startDate(type: string, event: MatDatepickerInputEvent<Date>) {
         this.start_date = event.value;
     }

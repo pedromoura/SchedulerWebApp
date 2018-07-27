@@ -1,62 +1,58 @@
 <div>
-	<div>
-		<form class="form_width" [formGroup]="angForm">
-			<mat-form-field class="full_width">
-				<input matInput placeholder="Tittle" name="tittle" formControlName="tittle" #tittle [(ngModel)]="meeting.tittle">
+    <div>
+        <form class="form_width" [formGroup]="angForm">
+            <mat-form-field class="full_width">
+                <input matInput placeholder="Tittle" name="tittle" formControlName="tittle" #tittle [(ngModel)]="meeting.tittle">
 
-				<mat-error *ngIf="angForm.controls['tittle'].invalid && (angForm.controls['tittle'].dirty || angForm.controls['tittle'].touched)">
-					Tittle is required.
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field class="full_width">
-				<input matInput placeholder="Description" name="description" formControlName="description" #description [(ngModel)]="meeting.description">
+                <mat-error *ngIf="angForm.controls['tittle'].invalid && (angForm.controls['tittle'].dirty || angForm.controls['tittle'].touched)">
+                    Tittle is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full_width">
+                <input matInput placeholder="Description" name="description" formControlName="description" #description [(ngModel)]="meeting.description">
 
-				<mat-error *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)">
-					Description is required.
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field class="date_width">
-				<input matInput #start_date name="start_date" formControlName="start_date"
-					[(ngModel)]="meeting.start_date" [matDatepicker]="start_date" placeholder="Choose a start date"
-					(dateChange)="change_startDate('change', $event)"
-				>
-				<mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
-				<mat-datepicker #start_date></mat-datepicker>
-						  
-				<mat-error *ngIf="angForm.controls['start_date'].invalid && (angForm.controls['start_date'].dirty || angForm.controls['start_date'].touched)">
-					Start Date is required.
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field class="date_width">
-				<input matInput #start_hour name="start_hour" type="time" formControlName="start_hour" [(ngModel)]="meeting.start_hour" placeholder="Choose a start hour">
-							
-				<mat-error *ngIf="angForm.controls['start_hour'].invalid && (angForm.controls['start_hour'].dirty || angForm.controls['start_hour'].touched)">
-					Start hour is required.
-				</mat-error>
-			</mat-form-field>        
-			
-			<mat-form-field class="date_width">
-				<input matInput #end_date name="end_date" formControlName="end_date" 
-					[(ngModel)]="meeting.end_date" [matDatepicker]="end_date" placeholder="Choose a end date"
-					(dateChange)="change_endDate('change', $event)"
-				>
-				<mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
-				<mat-datepicker #end_date></mat-datepicker>
-					  
-				<mat-error *ngIf="angForm.controls['end_date'].invalid && (angForm.controls['end_date'].dirty || angForm.controls['end_date'].touched)">
-					End Date is required.
-				</mat-error>
-			</mat-form-field> 
-			<mat-form-field class="date_width">
-				<input matInput #end_hour name="end_hour" type="time" formControlName="end_hour" [(ngModel)]="meeting.end_hour" placeholder="Choose a end hour">
-							
-				<mat-error *ngIf="angForm.controls['end_hour'].invalid && (angForm.controls['end_hour'].dirty || angForm.controls['end_hour'].touched)">
-					End hour is required.
-				</mat-error>
-			</mat-form-field>        
-	
-			<button mat-raised-button (click)="updateMeeting(tittle.value, description.value, start_hour.value, end_hour.value)" [disabled]="angForm.pristine || angForm.invalid"
-				color="primary">Update Meeting</button>
-		</form>
-	</div>
+                <mat-error *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)">
+                    Description is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="date_width">
+                <input matInput #start_date name="start_date" formControlName="start_date" [(ngModel)]="meeting.start_date" [matDatepicker]="start_date"
+                    placeholder="Choose a start date" (dateChange)="change_startDate('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="start_date"></mat-datepicker-toggle>
+                <mat-datepicker #start_date></mat-datepicker>
+
+                <mat-error *ngIf="angForm.controls['start_date'].invalid && (angForm.controls['start_date'].dirty || angForm.controls['start_date'].touched)">
+                    Start Date is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="date_width">
+                <input matInput #start_hour name="start_hour" type="time" formControlName="start_hour" [(ngModel)]="meeting.start_hour" placeholder="Choose a start hour">
+
+                <mat-error *ngIf="angForm.controls['start_hour'].invalid && (angForm.controls['start_hour'].dirty || angForm.controls['start_hour'].touched)">
+                    Start hour is required.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="date_width">
+                <input matInput #end_date name="end_date" formControlName="end_date" [(ngModel)]="meeting.end_date" [matDatepicker]="end_date"
+                    placeholder="Choose a end date" [min]="meeting.start_date" (dateChange)="change_endDate('change', $event)">
+                <mat-datepicker-toggle matSuffix [for]="end_date"></mat-datepicker-toggle>
+                <mat-datepicker #end_date></mat-datepicker>
+
+                <mat-error *ngIf="angForm.controls['end_date'].invalid && (angForm.controls['end_date'].dirty || angForm.controls['end_date'].touched)">
+                    End Date is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="date_width">
+                <input matInput #end_hour name="end_hour" type="time" formControlName="end_hour" [(ngModel)]="meeting.end_hour" placeholder="Choose a end hour">
+
+                <mat-error *ngIf="angForm.controls['end_hour'].invalid && (angForm.controls['end_hour'].dirty || angForm.controls['end_hour'].touched)">
+                    End hour is required.
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button (click)="updateMeeting(tittle.value, description.value, start_hour.value, end_hour.value)" [disabled]="angForm.pristine || angForm.invalid"
+                color="primary">Update Meeting</button>
+        </form>
+    </div>
 </div>

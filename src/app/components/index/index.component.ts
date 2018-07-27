@@ -3,7 +3,7 @@ import { MatPaginator, MatTableDataSource, MatDatepickerInputEvent } from '@angu
 
 import { MeetingService } from '../../services/meeting.service';
 import { Meeting } from './Meeting';
-import { FormControl } from '../../../../node_modules/@angular/forms';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-index',
@@ -21,21 +21,36 @@ export class IndexComponent implements OnInit {
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private meetingService: MeetingService) { 
+    constructor(private meetingService: MeetingService) {
+    }
+
+    fillDataSource(meetings) {
+        this.meetings = meetings;
+        this.dataSource = new MatTableDataSource<Meeting>(this.meetings);
+        this.dataSource.paginator = this.paginator;
+    }
+
+    getAllMeetings() {
+        this.meetingService.getMeetings().subscribe((data: Meeting[]) => {
+            this.fillDataSource(data);
+        });
+
     }
 
     getMeetings() {
-        this.meetingService.getMeetings().subscribe((data: Meeting[]) => {
-            this.meetings = data;
-            this.dataSource = new MatTableDataSource<Meeting>(this.meetings);  
-            this.dataSource.paginator = this.paginator;
+        const start_date = moment(this.today_date).format('YYYY-MM-DD');
+        const end_date = moment(this.today_date).add(1, 'days').format('YYYY-MM-DD');
 
+        this.meetingService.getMeetingsByDate(start_date, end_date).subscribe((data: Meeting[]) => {
+            this.fillDataSource(data);
         });
+
     }
 
     change_day(type: string, event: MatDatepickerInputEvent<Date>) {
         this.today_date = event.value;
         console.log(this.today_date);
+        this.getMeetings();
     }
 
     deleteMeeting(id) {

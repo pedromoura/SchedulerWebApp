@@ -26,6 +26,10 @@ export class MeetingService {
         return this.http.post(`${this.uri}/create`, meeting);
     }
 
+    getMeetingsByDate(start_date, end_date) {
+        return this.http.get(`${this.uri}/bydate?start_date=${start_date}&end_date=${end_date}`)
+    }
+
     getMeetingById(id) {
         return this.http.get(`${this.uri}/${id}`);
     }
