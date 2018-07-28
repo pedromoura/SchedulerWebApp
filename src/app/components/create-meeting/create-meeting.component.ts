@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators, NgForm, FormControl } from '@angula
 import { MeetingService } from '../../services/meeting.service';
 import { MatDatepickerInputEvent } from '../../../../node_modules/@angular/material';
 import { parse_dates } from '../../utils/parse-dates';
-import { Meeting } from '../index/Meeting';
+import { MatSnackBar } from '@angular/material';
 import { dateRangeValidator } from '../../validators/date-range-validator';
 
 @Component({
@@ -19,7 +19,10 @@ export class CreateMeetingComponent implements OnInit {
     start_date: Date;
     end_date: Date;
 
-    constructor(private meetingService: MeetingService, private fb: FormBuilder, private router: Router) {
+    constructor(private meetingService: MeetingService,
+        private fb: FormBuilder,
+        public snackBar: MatSnackBar,
+        private router: Router) {
         this.createForm();
         this.start_date = new Date();
         this.end_date = new Date();
@@ -49,7 +52,9 @@ export class CreateMeetingComponent implements OnInit {
     createMeeting(tittle, description, start_hour, end_hour) {
         const { parsed_Start_date, parsed_End_date } = parse_dates(this.start_date, this.end_date, start_hour, end_hour);
         this.meetingService.createMeeting(tittle, description, parsed_Start_date, parsed_End_date).subscribe(res => {
-            console.log('Done');
+            this.snackBar.open("Meeting created successfully", "Dismiss", {
+                duration: 2000,
+            });
             this.router.navigate(['']);
         });
     }

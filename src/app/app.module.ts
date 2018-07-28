@@ -5,15 +5,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { 
+import {
     MatToolbarModule,
-    MatInputModule, 
-    MatButtonModule, 
-    MatTableModule, 
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { MeetingService } from './services/meeting.service';
         EditMeetingComponent,
     ],
     imports: [
+        MatSnackBarModule,
         MatNativeDateModule,
         MatDatepickerModule,
         MatPaginatorModule,

@@ -7,6 +7,7 @@ import { MeetingService } from '../../services/meeting.service';
 import { MatDatepickerInputEvent } from '../../../../node_modules/@angular/material';
 import { parse_dates } from '../../utils/parse-dates';
 import { dateRangeValidator } from '../../validators/date-range-validator';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'app-edit-meeting',
@@ -19,6 +20,7 @@ export class EditMeetingComponent implements OnInit {
     angForm: FormGroup;
 
     constructor(private route: ActivatedRoute,
+        public snackBar: MatSnackBar,
         private router: Router,
         private meetingService: MeetingService,
         private fb: FormBuilder) {
@@ -45,7 +47,9 @@ export class EditMeetingComponent implements OnInit {
 
         this.route.params.subscribe(params => {
             this.meetingService.updateMeeting(params['id'], tittle, description, parsed_Start_date, parsed_End_date).subscribe(res => {
-                console.log('Done');
+                this.snackBar.open("Meeting edited successfully", "Dismiss", {
+                    duration: 2000,
+                });
                 this.router.navigate(['']);
             });
         });

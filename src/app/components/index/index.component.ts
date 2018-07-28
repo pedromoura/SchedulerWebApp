@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource, MatDatepickerInputEvent } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatDatepickerInputEvent, MatSnackBar } from '@angular/material';
 
 import { MeetingService } from '../../services/meeting.service';
 import { Meeting } from './Meeting';
@@ -21,7 +21,7 @@ export class IndexComponent implements OnInit {
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-    constructor(private meetingService: MeetingService) {
+    constructor(private meetingService: MeetingService, public snackBar: MatSnackBar) {
     }
 
     fillDataSource(meetings) {
@@ -54,6 +54,9 @@ export class IndexComponent implements OnInit {
 
     deleteMeeting(id) {
         this.meetingService.deleteMeeting(id).subscribe(res => {
+            this.snackBar.open("Meeting deleted successfully", "Dismiss", {
+                duration: 2000,
+            });
             this.getMeetings();
         });
     }
