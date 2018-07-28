@@ -50,6 +50,10 @@
                     End hour is required.
                 </mat-error>
             </mat-form-field>
+            <p *ngIf="angForm.errors" class="alert alert-danger small">
+                <strong>Dates/times out of range:</strong> Events cannot end before they begin. Please double-check the start and
+                end dates and times.
+            </p>
             <button mat-raised-button (click)="createMeeting(tittle.value, description.value, start_hour.value, end_hour.value)" [disabled]="angForm.pristine || angForm.invalid"
                 color="primary">Create Meeting</button>
         </form>

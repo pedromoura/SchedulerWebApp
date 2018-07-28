@@ -6,6 +6,7 @@ import { EditMeeting } from './EditMeeting';
 import { MeetingService } from '../../services/meeting.service';
 import { MatDatepickerInputEvent } from '../../../../node_modules/@angular/material';
 import { parse_dates } from '../../utils/parse-dates';
+import { dateRangeValidator } from '../../validators/date-range-validator';
 
 @Component({
     selector: 'app-edit-meeting',
@@ -32,7 +33,10 @@ export class EditMeetingComponent implements OnInit {
             start_hour: ['', Validators.required],
             end_date: ['', Validators.required],
             end_hour: ['', Validators.required]
-        });
+        },
+            {
+                validator: dateRangeValidator
+            });
     }
 
     updateMeeting(tittle, description, start_hour, end_hour) {
@@ -48,11 +52,11 @@ export class EditMeetingComponent implements OnInit {
     }
 
     change_endDate(type: string, event: MatDatepickerInputEvent<Date>) {
-        this.meeting = { ...this.meeting, end_date: event.value }; 
+        this.meeting = { ...this.meeting, end_date: event.value };
     }
-    
+
     change_startDate(type: string, event: MatDatepickerInputEvent<Date>) {
-        this.meeting = { ...this.meeting, start_date: event.value }; 
+        this.meeting = { ...this.meeting, start_date: event.value };
     }
 
     formatDate(date) {

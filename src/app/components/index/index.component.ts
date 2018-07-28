@@ -49,7 +49,6 @@ export class IndexComponent implements OnInit {
 
     change_day(type: string, event: MatDatepickerInputEvent<Date>) {
         this.today_date = event.value;
-        console.log(this.today_date);
         this.getMeetings();
     }
 
