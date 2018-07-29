@@ -75,11 +75,13 @@ export class EditMeetingComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.meetingService.getMeetingById(params['id']).subscribe((res: EditMeeting) => {
                 this.meeting = res;
-                this.meeting = { ...this.meeting, start_date: this.formatDate(this.meeting.start_date) };
-                this.meeting = { ...this.meeting, end_date: this.formatDate(this.meeting.end_date) };
-
-                this.meeting = { ...this.meeting, end_hour: this.formatHoursField(this.meeting.end_date) };
-                this.meeting = { ...this.meeting, start_hour: this.formatHoursField(this.meeting.start_date) };
+                this.meeting = {
+                    ...this.meeting,
+                    start_date: this.formatDate(this.meeting.start_date),
+                    end_date: this.formatDate(this.meeting.end_date),
+                    end_hour: this.formatHoursField(this.meeting.end_date),
+                    start_hour: this.formatHoursField(this.meeting.start_date)
+                };
             });
         });
     }
