@@ -884,9 +884,9 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bootstrap@^4.1.2:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.3.tgz#0eb371af2c8448e8c210411d0cb824a6409a12be"
+bootstrap@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -3996,10 +3996,6 @@ neo-async@^2.5.0:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
-
-ng-pick-datetime@^6.0.10:
-  version "6.0.10"
-  resolved "https://registry.yarnpkg.com/ng-pick-datetime/-/ng-pick-datetime-6.0.10.tgz#214ce1c96b956e44b4603de483d1c2fcc9c6a7ff"
 
 no-case@^2.2.0:
   version "2.3.2"
